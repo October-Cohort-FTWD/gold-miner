@@ -10,11 +10,11 @@ class Monster{
         setInterval(()=>{
             this.x =Math.floor(Math.random()*700)+1;
             setInterval(()=>{
-                this.x +=; 
+                this.x += 1; 
             },500);
             this.y = Math.floor(Math.random()*700)+1;
             setInterval(()=>{
-                this.y +=; 
+                this.y += 1; 
             },500);
 
         },10000)
