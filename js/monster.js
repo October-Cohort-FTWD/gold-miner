@@ -56,9 +56,6 @@ class Monster {
                 }
                 
             },500);
-<<<<<<< HEAD
-        },10000)      
-=======
         },3000)      
     }
 
@@ -75,7 +72,6 @@ class Monster {
             return true;
         }
         return false;
->>>>>>> e00acd2a628469bfee2aa7adef386ae7953bf53c
     }
 }
 
