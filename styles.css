@@ -12,4 +12,5 @@ body {
 #rock-board{
 background-image: url("./images/rock-background.jpg");
 background-position: center;
+background-size: contain;
 }
