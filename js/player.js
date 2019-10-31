@@ -20,16 +20,16 @@ class Player {
 
     /**
      * move method for Player object
-     * @param {new x axis position on canvas} arrivalX 
-     * @param {new y axis position on canvas} arrivalY 
+     * @param {new x axis position on canvas} futureX 
+     * @param {new y axis position on canvas} futureY 
      * @param {canvas width} canvasWidth 
      * @param {canvas height} canvasHeight 
      */
-    movePlayer(arrivalX, arrivalY, canvasWidth, canvasHeight) {
-        if(arrivalX + this.width <= canvasWidth && arrivalX >= 0 && 
-            arrivalY + this.height <= canvasHeight && arrivalY >= 0) {
-            this.x = arrivalX;
-            this.y = arrivalY;
+    movePlayer(futureX, futureY, canvasWidth, canvasHeight) {
+        if(futureX + this.width <= canvasWidth && futureX >= 0 && 
+            futureY + this.height <= canvasHeight && futureY >= 0) {
+            this.x = futureX;
+            this.y = futureY;
         }
     }
 }
