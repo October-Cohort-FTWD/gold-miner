@@ -19,6 +19,11 @@ class Monster {
         this.monsterType = snakeImg;
     }
 
+    /**
+     * 
+     * @param {*} canvasWidth 
+     * @param {*} canvasHeight 
+     */
     moveMonster(canvasWidth, canvasHeight) {
         let futureX = 0;
         let futureY = 0;
