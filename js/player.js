@@ -8,7 +8,7 @@ class Player {
     movePlayer(arrivalX, arrivalY) {
         if(arrivalX + this.width <= 400 && arrivalX >=0 && arrivalY + this.height <= 400 && arrivalY >= 0) {
             this.x = arrivalX;
-            this.y = arrivaly;
+            this.y = arrivalY;
         }
         
     }
