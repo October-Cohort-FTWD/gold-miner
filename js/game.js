@@ -12,7 +12,7 @@ class Game {
     this.moneyArray = [];
     
     for (let i = 0; i < r; i++) {
-      this.moneyArray.push({i : new Money(Math.floor(Math.random() * canvasWidth-30), Math.floor(Math.random() * canvasHeight-30), 30, 30, Math.floor(Math.random()*4)+1)});
+      this.moneyArray.push({i : new Money(Math.floor(Math.random() * canvasWidth-30), Math.floor(Math.random() * canvasHeight-50), 30, 50, Math.floor(Math.random()*4)+1)});
     }
   }
   /**
