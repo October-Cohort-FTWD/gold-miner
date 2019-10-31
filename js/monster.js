@@ -39,6 +39,7 @@ class Monster {
             }
             setInterval(()=>{
                 if(this.checkBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
+
                     this.x += monsterSpeed;
                     this.y += monsterSpeed;
                 }
