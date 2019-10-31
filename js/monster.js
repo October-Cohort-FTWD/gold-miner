@@ -29,12 +29,7 @@ class Monster {
             setInterval(()=>{
                 this.y += 10; 
             },500);
-
-<<<<<<< HEAD
         },10000)      
-=======
-        },10000)
->>>>>>> 89699d1e6916b64b072ffc3a137b26fcb13f7eee
     }
 }
 

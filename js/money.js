@@ -12,6 +12,29 @@ class Money {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.moneyType = moneyType;
+        this.moneyType = moneyType; 
     }
+    revealType(moneyType) {
+        if(moneyType === 1) {
+            const goldImg = new Image();
+            goldImg.src = "../images/gold-nugget.png";
+            return goldImg;
+        }
+        if(moneyType === 2) {
+            const diamondImg = new Image();
+            diamondImg.src = "../images/diamond.png";
+            return diamondImg;
+        }
+        if(moneyType === 3) {
+            const rubyImg = new Image();
+            rubyImg.src = "../images/ruby.png";
+            return rubyImg;
+        }
+        if(moneyType === 4) {
+            const sapphireImg = new Image();
+            sapphireImg.src = "../images/sapphire.png";
+            return sapphireImg;
+        }
+    }
+    
 }

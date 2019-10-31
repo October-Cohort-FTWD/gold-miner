@@ -29,9 +29,9 @@ function mainLoop(){
     // clearRect erases the pixels of the canvas starting from (0, 0) until (canvasWidth, canvasHeight)
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    // draw the player and monster
+    // draw the player, money and monster
     theGame.drawPlayer(ctx);
-
+    theGame.drawMoney(ctx);
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 
     * This will request that your animation function be called before the browser performs 
