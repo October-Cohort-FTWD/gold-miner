@@ -5,5 +5,11 @@ class Player {
         this.width = width;
         this.height = height;
     }
-    
+    movePlayer(arrivalX, arrivalY) {
+        if(arrivalX + this.width <= 400 && arrivalX >=0 && arrivalY + this.height <= 400 && arrivalY >= 0) {
+            this.x = arrivalX;
+            this.y = arrivaly;
+        }
+        
+    }
 }
