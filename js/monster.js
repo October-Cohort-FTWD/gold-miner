@@ -20,9 +20,9 @@ class Monster {
     }
 
     /**
-     * 
-     * @param {*} canvasWidth 
-     * @param {*} canvasHeight 
+     * randomly moves the monster throughout the board 
+     * @param {canvas width} canvasWidth 
+     * @param {canvas height} canvasHeight 
      */
     moveMonster(canvasWidth, canvasHeight) {
         let futureX = 0;
@@ -32,14 +32,13 @@ class Monster {
             console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
             futureX = Math.floor(Math.random()*canvasWidth-this.width);
             futureY = Math.floor(Math.random()*canvasWidth-this.height);
-            if(this.checkBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
-                console.log(this.checkBoundary(futureX, futureY, canvasWidth, canvasHeight))
+            if(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
+                console.log(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight))
                 this.x = futureX;
                 this.y = futureY;
             }
             setInterval(()=>{
-                if(this.checkBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
-
+                if(this.checkMonsterBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
                     this.x += monsterSpeed;
                     this.y += monsterSpeed;
                 }
@@ -52,13 +51,13 @@ class Monster {
     }
 
     /**
-     * 
-     * @param {*} futureX 
-     * @param {*} futureY 
-     * @param {*} canvasWidth 
-     * @param {*} canvasHeight 
+     * checks if the new position of the monster is within the canvas
+     * @param {new x axis position} futureX 
+     * @param {new x axis position} futureY 
+     * @param {canvas width} canvasWidth 
+     * @param {canvas height} canvasHeight 
      */
-    checkBoundary(futureX, futureY, canvasWidth, canvasHeight) {
+    checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight) {
         if(futureX + this.width <= canvasWidth && futureX >= 0 && 
             futureY + this.height <= canvasHeight && futureY >= 0) {
             return true;
