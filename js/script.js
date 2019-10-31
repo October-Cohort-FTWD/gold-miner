@@ -60,6 +60,5 @@ document.onkeydown = function(e){
     player.movePlayer(player.x + characterSpeed,player.y, canvasWidth, canvasHeight);
   }
 }
-
 mainLoop();
 
