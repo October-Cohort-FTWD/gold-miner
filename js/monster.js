@@ -50,6 +50,13 @@ class Monster {
         },5000)      
     }
 
+    /**
+     * 
+     * @param {*} futureX 
+     * @param {*} futureY 
+     * @param {*} canvasWidth 
+     * @param {*} canvasHeight 
+     */
     checkBoundary(futureX, futureY, canvasWidth, canvasHeight) {
         if(futureX + this.width <= canvasWidth && futureX >= 0 && 
             futureY + this.height <= canvasHeight && futureY >= 0) {
