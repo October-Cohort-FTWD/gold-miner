@@ -50,4 +50,18 @@ class Game {
     let monsterImage = this.theMonster.monsterType
     context.drawImage(monsterImage, monsterX, monsterY, monsterWidth, monsterHeight);
   }
+
+  /**
+   * this function allows the monster to be randomly change
+   * @param {string: specifies the monster type} characterType 
+   */
+  randomizeMonster(monsterType) {
+    switch(monsterType) {
+      case "monsterTypes":
+          const monsterTypesavailable = new Image();
+          monsterTypesavailable.src = "./images/characterTheUserTypes.png";
+          this.theMonster.character = monsterTypesavailable;
+          break;
+    }
+  }
 }
