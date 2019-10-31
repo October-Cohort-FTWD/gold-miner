@@ -42,6 +42,8 @@ function mainLoop(){
     requestAnimationFrame(mainLoop);
 }
 
+monster.moveMonster(canvasWidth, canvasHeight);
+
 // controls how fast the character moves
 let characterSpeed = 30;
 

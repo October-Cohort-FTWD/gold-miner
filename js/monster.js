@@ -19,17 +19,38 @@ class Monster {
         this.monsterType = snakeImg;
     }
 
-    moveMonster() {
+    moveMonster(canvasWidth, canvasHeight) {
+        let futureX = 0;
+        let futureY = 0;
+        let monsterSpeed = 10;
         setInterval(()=>{
-            this.x =Math.floor(Math.random()*700)+1;
+            console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
+            futureX = Math.floor(Math.random()*canvasWidth-this.width);
+            futureY = Math.floor(Math.random()*canvasWidth-this.height);
+            if(this.checkBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
+                console.log(this.checkBoundary(futureX, futureY, canvasWidth, canvasHeight))
+                this.x = futureX;
+                this.y = futureY;
+            }
             setInterval(()=>{
-                this.x +=10;
+                if(this.checkBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
+                    this.x += monsterSpeed;
+                    this.y += monsterSpeed;
+                }
+                else {
+                    this.x = canvasHeight/2;
+                    this.y = canvasWidth/2;
+                }
             },500);
-            this.y = Math.floor(Math.random()*700)+1;
-            setInterval(()=>{
-                this.y += 10; 
-            },500);
-        },10000)      
+        },5000)      
+    }
+
+    checkBoundary(futureX, futureY, canvasWidth, canvasHeight) {
+        if(futureX + this.width <= canvasWidth && futureX >= 0 && 
+            futureY + this.height <= canvasHeight && futureY >= 0) {
+            return true;
+        }
+        return false;
     }
 }
 
