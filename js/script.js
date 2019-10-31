@@ -17,7 +17,7 @@ function drawImages() {
 
 function mainLoop(){
     frames++;
-    ctx.clearRect(0,0,400,400);
+    ctx.clearRect(0,0,700,700);
     drawImages()
     requestAnimationFrame(mainLoop);
 }
