@@ -13,8 +13,8 @@ body {
 #rock-board{
 background-image: url("./images/rock-background.jpg");
 background-position: center;
-/* background-size: 100%; */
-height: 95vh;
+background-size: contain;
+height: 85vh;
 }
 .rotated {
   transform: rotate(90deg);   
