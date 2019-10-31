@@ -1,13 +1,13 @@
 #game-board {
   float: left;
-  padding: 20px 0px;
-  border: 1px solid #870007;
-  width: 400px;
-  height:600px
+  padding: 10px;
+  border: 1px solid black;
+  width: 700px;
+  height:700px
 }
-#road{
-/* background-image: url("images/straight-road.jpg"); */
-width: 400px;
-height: 600px;
+#rock-board{
+background-image: url("./images/rock-background.jpg");
+/* width: 400px;
+height: 600px; */
 background-position: center;
 }
