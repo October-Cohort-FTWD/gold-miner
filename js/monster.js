@@ -29,15 +29,17 @@ class Monster {
         let futureY = 0;
         let monsterSpeed = 10;
          setInterval(()=>{
-            console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
-            futureX = Math.floor(Math.random()*canvasWidth-this.width);
-            futureY = Math.floor(Math.random()*canvasWidth-this.height);
-            if(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
-                console.log(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight))
-                this.x = futureX;
-                this.y = futureY;
-            }
-             setInterval(()=>{
+             setTimeout(()=>{
+                console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
+                futureX = Math.floor(Math.random()*canvasWidth-this.width);
+                futureY = Math.floor(Math.random()*canvasWidth-this.height);
+                if(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
+                    console.log(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight))
+                    this.x = futureX;
+                    this.y = futureY;
+                    console.log('spawning');
+             }
+            },4000)
                 if(this.checkMonsterBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
                     if(this.x%2 === 0 && this.y%2 === 0){
                        this.x += monsterSpeed; 
@@ -55,8 +57,9 @@ class Monster {
                      this.y = Math.floor(Math.random()*canvasWidth-this.height);
                 }
                 
-            },500);
-        },3000)      
+                console.log('moving');
+            
+        },1000)      
     }
 
     /**
