@@ -11,9 +11,9 @@ let miner = new Player(100,100,25,50);
 const playerImg = new Image();
 playerImg.src = './images/gold-miner.png';
 
-function drawSelf(u){
-    ctx.fillRect(u.x, u.y, u.width, u.height)
-}
+// function drawSelf(u){
+//     ctx.fillRect(u.x, u.y, u.width, u.height)
+// }
 
 function drawImages() {
     ctx.clearRect(0, 0, 400, 800);
@@ -26,7 +26,7 @@ function mainLoop(){
     ctx.clearRect(0,0,400,400);
 
     // this is where we draw the hero
-    drawSelf(miner, false);
+    drawImages()
     // then we draw all the obstacles
     // theGame.obstacleArray.forEach((eachObstacle)=>{
     //     drawSelf(eachObstacle, true)
