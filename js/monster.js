@@ -1,5 +1,5 @@
 class Monster{
-    contstructor(x,y,width,height){
+    constructor(x,y,width,height){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -10,11 +10,11 @@ class Monster{
         setInterval(()=>{
             this.x =Math.floor(Math.random()*700)+1;
             setInterval(()=>{
-                this.x +=; 
+                this.x +=10;
             },500);
             this.y = Math.floor(Math.random()*700)+1;
             setInterval(()=>{
-                this.y +=; 
+                this.y +=10; 
             },500);
 
         },10000)

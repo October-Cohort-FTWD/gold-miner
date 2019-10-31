@@ -11,16 +11,23 @@ let miner = new Player(100,100,50,50);
 const playerImg = new Image();
 playerImg.src = '../images/gold-miner.png';
 
+let snake = new Monster(300,300,50,40);
+const snakeImg = new Image();
+snakeImg.src = '../images/enemy-snake.png';
+
 function drawImages() {
     console.log('miner');
-    // ctx.clearRect(0, 0, 400, 800);
+    //ctx.clearRect(0, 0, 400, 800);
     ctx.drawImage(playerImg, miner.x, miner.y, miner.width, miner.height);
+    ctx.drawImage(snakeImg,snake.x,snake.y,snake.width, snake.height);
+    console.log('snake');
   }
+  
 
 function mainLoop(){
     frames++;
-    ctx.clearRect(0,0,400,400);
-    drawImages()
+    ctx.clearRect(0,0,700,700);
+    drawImages();
     requestAnimationFrame(mainLoop);
 }
 mainLoop();
