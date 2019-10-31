@@ -12,7 +12,7 @@ let canvasWidth = document.querySelector("#rock-board").width;
 let canvasHeight = document.querySelector("#rock-board").height;
 
 // create a Game object, initializes new player and monster
-let theGame = new Game();
+let theGame = new Game(canvasWidth, canvasHeight);
 
 // create player and monster variables
 let player = theGame.thePlayer;
@@ -31,6 +31,7 @@ function mainLoop(){
 
     // draw the player and monster
     theGame.drawPlayer(ctx);
+    theGame.drawMonster(ctx);
 
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 
