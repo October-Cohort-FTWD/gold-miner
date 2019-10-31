@@ -6,8 +6,8 @@ class Game {
   constructor(canvasWidth, canvasHeight) {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
-    this.thePlayer = new Player(0,0,100,100);
-    this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 100, 100);
+    this.thePlayer = new Player(0,0,60,100);
+    this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 60, 100);
   }
 
   /**
