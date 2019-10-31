@@ -4,10 +4,10 @@ class Game {
    * a Player object is initialzed with default values
    */
   constructor() {
-    // this.canvasWidth = canvasWidth;
-    // this.canvasHeight = canvasHeight;
-    this.thePlayer = new Player(0, 0, 100, 100);
-    this.theMonster = new Monster(200, 200, 100, 100);
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
+    this.thePlayer = new Player(0,0,60,100);
+    this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 60, 100);
     let r = Math.floor(Math.random() * 20) + 1;
     this.moneyArray = [];
     
@@ -15,7 +15,6 @@ class Game {
       this.moneyArray.push({i : new Money(Math.floor(Math.random() * canvasWidth-30), Math.floor(Math.random() * canvasHeight-30), 30, 30, Math.floor(Math.random()*4)+1)});
     }
   }
-
   /**
    * draw a player on the canvas
    * @param {passes the canvas context} context 
@@ -25,7 +24,8 @@ class Game {
     let playerY = this.thePlayer.y;
     let playerWidth = this.thePlayer.width;
     let playerHeight = this.thePlayer.height;
-    context.drawImage(this.thePlayer.characterType, playerX, playerY, playerWidth, playerHeight);
+    let playerImage = this.thePlayer.characterType;
+    context.drawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
   }
 
   /**
@@ -52,7 +52,8 @@ class Game {
     let monsterY = this.theMonster.y;
     let monsterWidth = this.theMonster.width;
     let monsterHeight = this.theMonster.height;
-    context.drawImage(this.theMonster.character, monsterX, monsterY, monsterWidth, monsterHeight);
+    let monsterImage = this.theMonster.monsterType
+    context.drawImage(monsterImage, monsterX, monsterY, monsterWidth, monsterHeight);
   }
   drawMoney(context) {
     let moneyX ;

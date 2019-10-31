@@ -3,7 +3,6 @@ body {
   text-align: center;
   overflow: hidden;
   display:flex;
-
 }
 
 #game-board {
@@ -15,6 +14,7 @@ body {
 background-image: url("./images/rock-background.jpg");
 background-position: center;
 background-size: contain;
+height: 85vh;
 }
 .rotated {
   transform: rotate(90deg);   

@@ -5,7 +5,7 @@ class Money {
      * @param {y axis position on canvas} y 
      * @param {width of player} width 
      * @param {height of player} height 
-     * @param {default money type is a miner} moneyType 
+     * @param {default money type is random} moneyType 
      */
     constructor(x,y,width,height,moneyType){
         this.x = x;
