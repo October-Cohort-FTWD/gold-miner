@@ -8,11 +8,11 @@ class Monster{
 
     moveMonster(){
         setInterval(()=>{
-            this.x =Math.floor(Math.random()*)+1;
+            this.x =Math.floor(Math.random()*700)+1;
             setInterval(()=>{
                 this.x +=; 
             },500);
-            this.y = Math.floor(Math.random()*)+1;
+            this.y = Math.floor(Math.random()*700)+1;
             setInterval(()=>{
                 this.y +=; 
             },500);
