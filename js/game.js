@@ -70,6 +70,10 @@ class Game {
     }
   }
 
+  collisionDetection() {
+    
+  }
+
   /**
    * 
    * @param {the context where the canvas is located} context 
