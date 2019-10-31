@@ -1,0 +1,13 @@
+#game-board {
+  float: left;
+  padding: 20px 0px;
+  border: 1px solid #870007;
+  width: 400px;
+  height:600px
+}
+#road{
+/* background-image: url("images/straight-road.jpg"); */
+width: 400px;
+height: 600px;
+background-position: center;
+}
