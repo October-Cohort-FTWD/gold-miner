@@ -7,8 +7,8 @@
 // create the canvas that you will be working, assing it to ctx
 const ctx = document.getElementById('rock-board').getContext('2d');
 let frames = 0;
-let miner = new Player(500,500,50,50);
-const playerImg = new Image();
+let miner = new Player(0,0,50,50);
+let playerImg = new Image();
 playerImg.src = '../images/gold-miner.png';
 
 function drawImages() {
@@ -17,7 +17,7 @@ function drawImages() {
 
 function mainLoop(){
     frames++;
-    ctx.clearRect(0,0,400,400);
+    ctx.clearRect(0,0,700,700);
     drawImages()
     requestAnimationFrame(mainLoop);
 }
@@ -37,6 +37,7 @@ document.onkeydown = function(e){
     miner.movePlayer(miner.x - characterSpeed,miner.y);
   }
   if(e.key === "ArrowRight"){
+    console.log(playerImg)
     miner.movePlayer(miner.x + characterSpeed,miner.y);
   }
 }

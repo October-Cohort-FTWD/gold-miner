@@ -6,7 +6,7 @@ class Player {
         this.height = height;
     }
     movePlayer(arrivalX, arrivalY) {
-        if(arrivalX + this.width <= 400 && arrivalX >=0 && arrivalY + this.height <= 400 && arrivalY >= 0) {
+        if(arrivalX + this.width <= 700 && arrivalX >=0 && arrivalY + this.height <= 700 && arrivalY >= 0) {
             this.x = arrivalX;
             this.y = arrivalY;
         }
