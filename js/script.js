@@ -6,8 +6,15 @@
 
 // create the canvas that you will be working, assing it to ctx
 const ctx = document.getElementById('rock-board').getContext('2d');
+
+// variables that hold the canvas width and height in case the canvas size changes
+let canvasWidth = document.querySelector("#rock-board").width;
+let canvasHeight = document.querySelector("#rock-board").height;
+console.log(canvasHeight);
+console.log(canvasWidth);
+
 let frames = 0;
-let miner = new Player(100,100,50,50);
+let miner = new Player(500,500,50,50);
 const playerImg = new Image();
 playerImg.src = '../images/gold-miner.png';
 
@@ -28,6 +35,27 @@ function mainLoop(){
     frames++;
     ctx.clearRect(0,0,700,700);
     drawImages();
+    ctx.clearRect(0,0,canvasWidth,canvasHeight);
     requestAnimationFrame(mainLoop);
 }
+
+// controls how fast the character moves
+let characterSpeed = 30;
+
+// depending on the direction the user presses move in that direction
+document.onkeydown = function(e){
+  if(e.key === "ArrowUp"){
+    miner.movePlayer(miner.x,miner.y - characterSpeed);
+  }
+  if(e.key === "ArrowDown"){
+    miner.movePlayer(miner.x,miner.y + characterSpeed);
+  }
+  if(e.key === "ArrowLeft"){
+    miner.movePlayer(miner.x - characterSpeed,miner.y);
+  }
+  if(e.key === "ArrowRight"){
+    miner.movePlayer(miner.x + characterSpeed,miner.y);
+  }
+}
+
 mainLoop();

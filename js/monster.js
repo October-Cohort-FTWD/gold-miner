@@ -14,7 +14,7 @@ class Monster{
             },500);
             this.y = Math.floor(Math.random()*700)+1;
             setInterval(()=>{
-                this.y +=10; 
+                this.y += 10; 
             },500);
 
         },10000)
