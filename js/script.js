@@ -46,7 +46,6 @@ let characterSpeed = 30;
 
 // depending on the direction the user presses move in that direction
 document.onkeydown = function(e){
-  console.log(e.key);
   if(e.key === "ArrowUp"){
     player.movePlayer(player.x,player.y - characterSpeed, canvasWidth, canvasHeight);
   }
