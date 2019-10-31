@@ -6,6 +6,13 @@
 
 // create the canvas that you will be working, assing it to ctx
 const ctx = document.getElementById('rock-board').getContext('2d');
+
+// variables that hold the canvas width and height in case the canvas size changes
+let canvasWidth = document.querySelector("#rock-board").width;
+let canvasHeight = document.querySelector("#rock-board").height;
+console.log(canvasHeight);
+console.log(canvasWidth);
+
 let frames = 0;
 let miner = new Player(500,500,50,50);
 const playerImg = new Image();
@@ -17,7 +24,7 @@ function drawImages() {
 
 function mainLoop(){
     frames++;
-    ctx.clearRect(0,0,700,700);
+    ctx.clearRect(0,0,canvasWidth,canvasHeight);
     drawImages()
     requestAnimationFrame(mainLoop);
 }
