@@ -28,7 +28,7 @@ class Monster {
         let futureX = 0;
         let futureY = 0;
         let monsterSpeed = 10;
-        setInterval(()=>{
+         setInterval(()=>{
             console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
             futureX = Math.floor(Math.random()*canvasWidth-this.width);
             futureY = Math.floor(Math.random()*canvasWidth-this.height);
@@ -37,17 +37,26 @@ class Monster {
                 this.x = futureX;
                 this.y = futureY;
             }
-            setInterval(()=>{
+             setInterval(()=>{
                 if(this.checkMonsterBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
-                    this.x += monsterSpeed;
-                    this.y += monsterSpeed;
+                    if(this.x%2 === 0 && this.y%2 === 0){
+                       this.x += monsterSpeed; 
+                    } else if(this.x%2 !== 0 && this.y%2 !== 0){
+                        this.x -= monsterSpeed;
+                    }
+                    else if(this.x%2 === 0 && this.y%2 !== 0){
+                        this.y += monsterSpeed;
+                    } else if(this.x%2 !== 0 && this.y%2 === 0){
+                        this.y -= monsterSpeed;
+                    }
+                    
+                } else{
+                     this.x = Math.floor(Math.random()*canvasWidth-this.width);
+                     this.y = Math.floor(Math.random()*canvasWidth-this.height);
                 }
-                else {
-                    this.x = canvasHeight/2;
-                    this.y = canvasWidth/2;
-                }
+                
             },500);
-        },5000)      
+        },3000)      
     }
 
     /**
