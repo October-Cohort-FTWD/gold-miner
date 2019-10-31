@@ -1,7 +1,8 @@
 body {
   padding: 0px;
   text-align: center;
-  /* overflow: hidden; */
+  overflow: hidden;
+  display:flex;
 }
 
 #game-board {
@@ -12,5 +13,28 @@ body {
 #rock-board{
 background-image: url("./images/rock-background.jpg");
 background-position: center;
-background-size: contain;
+/* background-size: 100%; */
+height: 95vh;
+}
+.rotated {
+  transform: rotate(90deg);   
+  /* Equal to rotateZ(45deg) */
+  
+}
+.banner {
+  background-image : url('./images/gold-miner-3.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.instructions {
+  border: 4px solid rgba(240, 167, 11, 0.877);
+  background-color: rgba(133, 68, 8, 0.877);
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
 }

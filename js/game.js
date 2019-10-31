@@ -3,11 +3,11 @@ class Game {
    * constructor for Game object
    * a Player object is initialzed with default values
    */
-  constructor() {
-    // this.canvasWidth = canvasWidth;
-    // this.canvasHeight = canvasHeight;
+  constructor(canvasWidth, canvasHeight) {
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
     this.thePlayer = new Player(0,0,100,100);
-    this.theMonster = new Monster(200, 200, 100, 100);
+    this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 100, 100);
   }
 
   /**
@@ -19,7 +19,8 @@ class Game {
     let playerY = this.thePlayer.y;
     let playerWidth = this.thePlayer.width;
     let playerHeight = this.thePlayer.height;
-    context.drawImage(this.thePlayer.characterType, playerX, playerY, playerWidth, playerHeight);
+    let playerImage = this.thePlayer.characterType;
+    context.drawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
   }
 
   /**
@@ -46,7 +47,7 @@ class Game {
     let monsterY = this.theMonster.y;
     let monsterWidth = this.theMonster.width;
     let monsterHeight = this.theMonster.height;
-    context.drawImage(this.theMonster.character, monsterX, monsterY, monsterWidth, monsterHeight);
+    let monsterImage = this.theMonster.monsterType
+    context.drawImage(monsterImage, monsterX, monsterY, monsterWidth, monsterHeight);
   }
-
 }
