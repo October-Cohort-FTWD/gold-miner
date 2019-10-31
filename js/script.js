@@ -23,4 +23,24 @@ function mainLoop(){
     drawImages()
     requestAnimationFrame(mainLoop);
 }
+
+// controls how fast the character moves
+let characterSpeed = 30;
+
+// depending on the direction the user presses move in that direction
+document.onkeydown = function(e){
+  if(e.key === "ArrowUp"){
+    miner.movePlayer(miner.x,miner.y - characterSpeed);
+  }
+  if(e.key === "ArrowDown"){
+    miner.movePlayer(miner.x,miner.y + characterSpeed);
+  }
+  if(e.key === "ArrowLeft"){
+    miner.movePlayer(miner.x - characterSpeed,miner.y);
+  }
+  if(e.key === "ArrowRight"){
+    miner.movePlayer(miner.x + characterSpeed,miner.y);
+  }
+}
+
 mainLoop();
