@@ -37,6 +37,8 @@ class Game {
       moneyYPosition += this.thePlayer.height;
       this.moneyArray.push({i : new Money(moneyXPosition, moneyYPosition, moneyWidth, moneyHeight, Math.floor(Math.random() * 4) + 1)
       });
+      this.moneyArray.forEach(mon => 
+        console.log(Object.keys(mon)))
     }
   }
 
