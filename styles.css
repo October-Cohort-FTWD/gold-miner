@@ -36,6 +36,7 @@ background-image: url("./images/rock-background.jpg");
 background-position: center;
 background-size: contain;
 height: 85vh;
+padding:  0;
 }
 .score-board {
   height: 40vh;

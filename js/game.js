@@ -7,7 +7,7 @@ class Game {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.thePlayer = new Player(0,0,60,100);
-    this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 60, 100);
+    this.theMonster = new Monster(canvasWidth/7, canvasHeight/7, 60, 100);
     this.moneyArray = [];
     this.tracker = 0;
     this.createMoney();
@@ -88,16 +88,18 @@ class Game {
   collisionDetection(futureX, futureY) {
   let canMove = true;
 
-  // the greater this value is the closer the player will be able to get to the object before it cannot move
+  // the greater these values are the closer the player will be able to get to the object before it cannot move
   let rightCollissionProximity = 10;
-  let leftCollissionProximity = 10;
+  let leftCollissionProximity = 11;
+  let topCollissionProximity = 25;
+  let bottomCollissionProximity = 30;
 
   let playerRightSide = futureX + this.thePlayer.width - rightCollissionProximity;
-  let playerLeftSide = futureX;
-  let playerTopSide = futureY;
-  let playerBottomSide = futureY + this.thePlayer.height;
+  let playerLeftSide = futureX  + leftCollissionProximity;
+  let playerTopSide = futureY + topCollissionProximity;
+  let playerBottomSide = futureY + this.thePlayer.height - bottomCollissionProximity;
 
-  let monsterRightSide = this.theMonster.x + this.theMonster.width - leftCollissionProximity;
+  let monsterRightSide = this.theMonster.x + this.theMonster.width;
   let monsterLeftSide = this.theMonster.x;
   let monsterTopSide = this.theMonster.y;
   let monsterBottomSide = this.theMonster.y + this.theMonster.height;
@@ -131,7 +133,7 @@ class Game {
       context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
     }
   }
-  
+
   // track the score and keeps adding it to the score element in the score-board
   trackScore(valueScored) {
     this.tracker += valueScored;
