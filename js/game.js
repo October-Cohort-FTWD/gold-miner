@@ -14,6 +14,7 @@ class Game {
     for (let i = 0; i < r; i++) {
       this.moneyArray.push({i : new Money(Math.floor(Math.random() * canvasWidth-30), Math.floor(Math.random() * canvasHeight-50), 25, 40, Math.floor(Math.random()*4)+1)});
     }
+    this.tracker = 0;
   }
   /**
    * draw a player on the canvas
@@ -90,6 +91,11 @@ class Game {
       moneyHeight = this.moneyArray[i].i.height;
       context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
     }
-    
+  }
+  // track the score and keeps adding it to the score element in the score-board
+  trackScore(valueScored) {
+    this.tracker += valueScored;
+    console.log(document.getElementsByClassName('score-value')[0].innerText);
+    document.getElementsByClassName('score-value')[0].innerText = this.tracker;
   }
 }
