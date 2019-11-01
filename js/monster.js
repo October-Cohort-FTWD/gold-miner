@@ -31,15 +31,13 @@ class Monster {
         let counter = 0;
         
          setInterval(()=>{
-
-                console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
                 futureX = Math.floor(Math.random()*canvasWidth-this.width);
                 futureY = Math.floor(Math.random()*canvasWidth-this.height);
                 if(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight)) {
-                    console.log(this.checkMonsterBoundary(futureX, futureY, canvasWidth, canvasHeight))
+
                     this.x = futureX;
                     this.y = futureY;
-                    console.log('spawning');
+
              }
              
              
@@ -66,8 +64,6 @@ class Monster {
                      this.y = Math.floor(Math.random()*canvasWidth-this.height);
                      counter++;
                 }
-                console.log(counter);
-                console.log('moving');
             },1000)
             if(counter>=10){
                 clearInterval(move);

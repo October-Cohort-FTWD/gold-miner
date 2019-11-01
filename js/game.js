@@ -18,19 +18,22 @@ class Game {
     this.moneyArray = [];
     // randomly creates number of money
     let r = Math.floor(Math.random() * 20) + 5;
+    r = 3; // testing, remove later
+    
     let moneyXPosition;
     let moneyYPosition;
-    
+
+    let moneyWidth = 25;
+    let moneyHeight = 40
+
     for (let i = 0; i < r; i++) {
-      moneyXPosition = Math.floor(Math.random() * (this.canvasWidth - 25));
-      moneyYPosition = Math.floor(Math.random() * (this.canvasHeight - 40));
+      moneyXPosition = Math.floor(Math.random() * (this.canvasWidth - moneyWidth));
+      moneyYPosition = Math.floor(Math.random() * (this.canvasHeight - moneyHeight));
       if(moneyXPosition <= this.thePlayer.width)
       moneyXPosition += this.thePlayer.width;
       if(moneyXPosition <= this.thePlayer.height)
       moneyYPosition += this.thePlayer.height;
-
-      this.moneyArray.push({
-        i: new Money(moneyXPosition, moneyYPosition, 25, 40, Math.floor(Math.random() * 4) + 1)
+      this.moneyArray.push({i : new Money(moneyXPosition, moneyYPosition, moneyWidth, moneyHeight, Math.floor(Math.random() * 4) + 1)
       });
     }
   }
@@ -141,6 +144,19 @@ class Game {
       playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
       canMove = false;
     }
+
+    // the greater these values are the closer the player will be able to get to the object before it cannot move
+    rightCollissionProximity = 0;
+    leftCollissionProximity = 10;
+    topCollissionProximity = 0;
+    bottomCollissionProximity = 0;
+
+    this.moneyArray.forEach((e,index) => {
+      if(playerRightSide >= e.i.x && playerLeftSide <= e.i.x + e.i.width && 
+        playerBottomSide >= e.i.y && playerTopSide <= e.i.y + e.i.height)
+        canMove = false;
+    })
+
     return canMove;
   }
 
