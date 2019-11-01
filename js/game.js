@@ -8,13 +8,21 @@ class Game {
     this.canvasHeight = canvasHeight;
     this.thePlayer = new Player(0,0,60,100);
     this.theMonster = new Monster(canvasWidth/2, canvasHeight/2, 60, 100);
+    this.moneyArray = [];
+    this.tracker = 0;
+    this.createMoney();
+  }
+
+  // create money
+  createMoney() {
+    this.moneyArray = [];
     // randomly creates number of money
     let r = Math.floor(Math.random() * 20) + 1;
-    this.moneyArray = [];
     for (let i = 0; i < r; i++) {
-      this.moneyArray.push({i : new Money(Math.floor(Math.random() * canvasWidth-30), Math.floor(Math.random() * canvasHeight-50), 25, 40, Math.floor(Math.random()*4)+1)});
+      this.moneyArray.push({
+        i: new Money(Math.floor(Math.random() * canvasWidth - 30), Math.floor(Math.random() * canvasHeight - 50), 25, 40, Math.floor(Math.random() * 4) + 1)
+      });
     }
-    this.tracker = 0;
   }
   /**
    * draw a player on the canvas
@@ -95,7 +103,14 @@ class Game {
   // track the score and keeps adding it to the score element in the score-board
   trackScore(valueScored) {
     this.tracker += valueScored;
-    console.log(document.getElementsByClassName('score-value')[0].innerText);
     document.getElementsByClassName('score-value')[0].innerText = this.tracker;
+  }
+
+  // reset the game
+  reset() {
+    this.tracker = 0;
+    document.getElementsByClassName('score-value')[0].innerText = this.tracker;
+    console.log('created')
+    this.createMoney();
   }
 }

@@ -42,7 +42,9 @@ function mainLoop(){
     * */
     requestAnimationFrame(mainLoop);
 }
-
+function restart() {
+  theGame.reset();
+}
 monster.moveMonster(canvasWidth, canvasHeight);
 
 // controls how fast the character moves
@@ -63,5 +65,8 @@ document.onkeydown = function(e){
     player.movePlayer(player.x + characterSpeed,player.y, canvasWidth, canvasHeight);
   }
 }
+
+// start of the game
 mainLoop();
 
+// document.getElementsByClassName('reset')[0].onclick = theGame.reset();
