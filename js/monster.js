@@ -5,9 +5,8 @@ class Monster {
      * @param {y axis position on canvas} y 
      * @param {width of player} width 
      * @param {height of player} height 
-     * @param {default monster type is a snake } monsterType 
      */
-    constructor(x,y,width,height, monsterType){
+    constructor(x,y,width,height){
         this.x = x;
         this.y = y;
         this.width = width;
