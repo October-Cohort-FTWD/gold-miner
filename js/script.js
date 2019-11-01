@@ -25,7 +25,7 @@ let ouchSound = theGame.theOuch;
 
 // keeps count of the frames
 let frame = 0;
-let time = 
+//let time = 
 // function that recursively calls itself to update the animation screen
 // the loop can be called anything you want, doesn't have to be mainLoop
 function mainLoop(){
@@ -89,11 +89,11 @@ document.onkeydown = function(e){
 
 // start of the game
 mainLoop();
-function openPopup() {
-  document.getElementById
-}
-function timeUp() {
-setInterval(()=>{
+//function openPopup() {
+//  document.getElementById
+//}
+//function timeUp() {
+//setInterval(()=>{
 
-}, 1000)
-}
+///}, 1000)
+//}
