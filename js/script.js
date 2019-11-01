@@ -33,6 +33,8 @@ function mainLoop(){
     theGame.drawPlayer(ctx);
     theGame.drawMoney(ctx);
     theGame.drawMonster(ctx);
+  
+  
 
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 

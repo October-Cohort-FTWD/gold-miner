@@ -28,8 +28,10 @@ class Monster {
         let futureX = 0;
         let futureY = 0;
         let monsterSpeed = 10;
+        let counter = 0;
+        
          setInterval(()=>{
-             setTimeout(()=>{
+
                 console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)
                 futureX = Math.floor(Math.random()*canvasWidth-this.width);
                 futureY = Math.floor(Math.random()*canvasWidth-this.height);
@@ -39,28 +41,44 @@ class Monster {
                     this.y = futureY;
                     console.log('spawning');
              }
-            },4000)
+             
+             
+            let move = setInterval(()=>{
                 if(this.checkMonsterBoundary(this.x + monsterSpeed, this.y + monsterSpeed, canvasWidth, canvasHeight)) {
+                    
                     if(this.x%2 === 0 && this.y%2 === 0){
                        this.x += monsterSpeed; 
+                       counter++;
                     } else if(this.x%2 !== 0 && this.y%2 !== 0){
                         this.x -= monsterSpeed;
+                        counter++;
                     }
                     else if(this.x%2 === 0 && this.y%2 !== 0){
                         this.y += monsterSpeed;
+                        counter++;
                     } else if(this.x%2 !== 0 && this.y%2 === 0){
                         this.y -= monsterSpeed;
+                        counter++;
                     }
                     
                 } else{
                      this.x = Math.floor(Math.random()*canvasWidth-this.width);
                      this.y = Math.floor(Math.random()*canvasWidth-this.height);
+                     counter++;
                 }
-                
+                console.log(counter);
                 console.log('moving');
+            },1000)
+            if(counter>=10){
+                clearInterval(move);
+                counter = 0;
+            }
+           
             
-        },1000)      
+        },10000)   
+    
     }
+    
 
     /**
      * checks if the new position of the monster is within the canvas
