@@ -14,6 +14,9 @@ let canvasHeight = document.querySelector("#rock-board").height;
 // create a Game object, initializes new player and monster
 let theGame = new Game(canvasWidth, canvasHeight);
 
+// testing choose a character method
+theGame.chooseCharacter("test");
+
 // create player and monster variables
 let player = theGame.thePlayer;
 let monster = theGame.theMonster;
@@ -37,8 +40,6 @@ function mainLoop(){
     theGame.drawMonster(ctx);
     theGame.theThemeMusic.play();
   
-  
-
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 
     * This will request that your animation function be called before the browser performs 
@@ -63,25 +64,25 @@ document.onkeydown = function(e){
   if(e.key === "ArrowUp"){
     if(theGame.collisionDetection(player.x, player.y - characterSpeed))
     player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowDown"){
     if(theGame.collisionDetection(player.x, player.y + characterSpeed))
     player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowLeft"){
     if(theGame.collisionDetection(player.x - characterSpeed, player.y))
     player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowRight"){
     if(theGame.collisionDetection(player.x + characterSpeed, player.y))
     player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
   }
 }
