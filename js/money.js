@@ -7,7 +7,7 @@ class Money {
      * @param {height of player} height 
      * @param {default money type is random} moneyType 
      */
-    constructor(x,y,width,height,moneyType, the){
+    constructor(x,y,width,height,moneyType){
         this.x = x;
         this.y = y;
         this.width = width;

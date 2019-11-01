@@ -3,7 +3,7 @@ class Game {
    * constructor for Game object
    * a Player object is initialzed with default values
    */
-  constructor() {
+  constructor(canvasWidth, canvasHeight) {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.thePlayer = new Player(0,0,60,100);
@@ -17,10 +17,20 @@ class Game {
   createMoney() {
     this.moneyArray = [];
     // randomly creates number of money
-    let r = Math.floor(Math.random() * 20) + 1;
+    let r = Math.floor(Math.random() * 20) + 5;
+    let moneyXPosition;
+    let moneyYPosition;
+    
     for (let i = 0; i < r; i++) {
+      moneyXPosition = Math.floor(Math.random() * (this.canvasWidth - 25));
+      moneyYPosition = Math.floor(Math.random() * (this.canvasHeight - 40));
+      if(moneyXPosition <= this.thePlayer.width)
+      moneyXPosition += this.thePlayer.width;
+      if(moneyXPosition <= this.thePlayer.height)
+      moneyYPosition += this.thePlayer.height;
+
       this.moneyArray.push({
-        i: new Money(Math.floor(Math.random() * canvasWidth ) - 25, Math.floor(Math.random() * canvasHeight ) - 40, 25, 40, Math.floor(Math.random() * 4) + 1)
+        i: new Money(moneyXPosition, moneyYPosition, 25, 40, Math.floor(Math.random() * 4) + 1)
       });
     }
   }
@@ -61,12 +71,12 @@ class Game {
    * this function allows the player to choose a different character
    * @param {string: specifies the character the player wants} characterType 
    */
-  chooseCharacter(characterType) {
-    switch(characterType) {
-      case "characterTheUserTypes":
+  chooseCharacter(characterChosen) {
+    switch(characterChosen) {
+      case "test":
           const characterTheUserTypesImg = new Image();
-          characterTheUserTypesImg.src = "./images/characterTheUserTypes.png";
-          this.thePlayer.character = characterTheUserTypesImg;
+          characterTheUserTypesImg.src = "./images/cartoon-miner.png";
+          this.thePlayer.characterType = characterTheUserTypesImg;
           break;
     }
   }

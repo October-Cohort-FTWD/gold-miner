@@ -14,6 +14,9 @@ let canvasHeight = document.querySelector("#rock-board").height;
 // create a Game object, initializes new player and monster
 let theGame = new Game(canvasWidth, canvasHeight);
 
+// testing choose a character method
+theGame.chooseCharacter("test");
+
 // create player and monster variables
 let player = theGame.thePlayer;
 let monster = theGame.theMonster;
