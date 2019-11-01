@@ -26,6 +26,25 @@ class Game {
   }
 
   /**
+   * 
+   * @param {the context where the canvas is located} context 
+   */
+  drawMoney(context) {
+    let moneyX;
+    let moneyY;
+    let moneyWidth;
+    let moneyHeight;
+
+    for(let i=0;i< this.moneyArray.length;i++) {
+      moneyX = this.moneyArray[i].i.x;
+      moneyY = this.moneyArray[i].i.y;
+      moneyWidth = this.moneyArray[i].i.width;
+      moneyHeight = this.moneyArray[i].i.height;
+      context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
+    }
+  }
+
+  /**
    * draw the player on the canvas
    * @param {passes the canvas context} context 
    */
@@ -86,52 +105,33 @@ class Game {
    * @param {new y axis position on canvas} futureY 
    */
   collisionDetection(futureX, futureY) {
-  let canMove = true;
+    let canMove = true;
 
-  // the greater these values are the closer the player will be able to get to the object before it cannot move
-  let rightCollissionProximity = 10;
-  let leftCollissionProximity = 11;
-  let topCollissionProximity = 25;
-  let bottomCollissionProximity = 30;
+    // the greater these values are the closer the player will be able to get to the object before it cannot move
+    let rightCollissionProximity = 10;
+    let leftCollissionProximity = 11;
+    let topCollissionProximity = 25;
+    let bottomCollissionProximity = 30;
 
-  let playerRightSide = futureX + this.thePlayer.width - rightCollissionProximity;
-  let playerLeftSide = futureX  + leftCollissionProximity;
-  let playerTopSide = futureY + topCollissionProximity;
-  let playerBottomSide = futureY + this.thePlayer.height - bottomCollissionProximity;
+    let playerRightSide = futureX + this.thePlayer.width - rightCollissionProximity;
+    let playerLeftSide = futureX  + leftCollissionProximity;
+    let playerTopSide = futureY + topCollissionProximity;
+    let playerBottomSide = futureY + this.thePlayer.height - bottomCollissionProximity;
 
-  let monsterRightSide = this.theMonster.x + this.theMonster.width;
-  let monsterLeftSide = this.theMonster.x;
-  let monsterTopSide = this.theMonster.y;
-  let monsterBottomSide = this.theMonster.y + this.theMonster.height;
+    let monsterRightSide = this.theMonster.x + this.theMonster.width;
+    let monsterLeftSide = this.theMonster.x;
+    let monsterTopSide = this.theMonster.y;
+    let monsterBottomSide = this.theMonster.y + this.theMonster.height;
 
-  /**
-   * if the right and left side of the player are between then monsters left and right side &&
-   * if the top and bottom side of the player are between then monsters top and bottom side
-   */
-  if(playerRightSide >= monsterLeftSide && playerLeftSide <= monsterRightSide && 
-    playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
-    canMove = false;
-  }
-  return canMove;
-}
-
-  /**
-   * 
-   * @param {the context where the canvas is located} context 
-   */
-  drawMoney(context) {
-    let moneyX;
-    let moneyY;
-    let moneyWidth;
-    let moneyHeight;
-
-    for(let i=0;i< this.moneyArray.length;i++) {
-      moneyX = this.moneyArray[i].i.x;
-      moneyY = this.moneyArray[i].i.y;
-      moneyWidth = this.moneyArray[i].i.width;
-      moneyHeight = this.moneyArray[i].i.height;
-      context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
+    /**
+     * if the right and left side of the player are between then monsters left and right side &&
+     * if the top and bottom side of the player are between then monsters top and bottom side
+     */
+    if(playerRightSide >= monsterLeftSide && playerLeftSide <= monsterRightSide && 
+      playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
+      canMove = false;
     }
+    return canMove;
   }
 
   // track the score and keeps adding it to the score element in the score-board
