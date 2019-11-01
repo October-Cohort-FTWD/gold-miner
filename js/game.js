@@ -140,9 +140,6 @@ class Game {
 
   // reset the game
   reset() {
-    this.tracker = 0;
-    document.getElementsByClassName('score-value')[0].innerText = this.tracker;
-    console.log('created')
-    this.createMoney();
+    location.reload();
   }
 }
