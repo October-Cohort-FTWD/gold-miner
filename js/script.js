@@ -83,10 +83,7 @@ document.onkeydown = function(e){
   }
 }
 
-<<<<<<< HEAD
-=======
 // start of the game
->>>>>>> 8f3701e321e2c752be304a1196155271a87a903d
 mainLoop();
 
 // document.getElementsByClassName('reset')[0].onclick = theGame.reset();
