@@ -86,4 +86,3 @@ document.onkeydown = function(e){
 // start of the game
 mainLoop();
 
-// document.getElementsByClassName('reset')[0].onclick = theGame.reset();
