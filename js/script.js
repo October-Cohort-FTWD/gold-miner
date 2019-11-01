@@ -45,25 +45,45 @@ function mainLoop(){
     requestAnimationFrame(mainLoop);
 }
 
-monster.moveMonster(canvasWidth, canvasHeight);
+// randomly move the monster on the game board
+// monster.moveMonster(canvasWidth, canvasHeight);
+
+function restart() {
+  theGame.reset();
+}
 
 // controls how fast the character moves
-let characterSpeed = 30;
+let characterSpeed = 15;
 
 // depending on the direction the user presses move in that direction
 document.onkeydown = function(e){
   if(e.key === "ArrowUp"){
-    player.movePlayer(player.x,player.y - characterSpeed, canvasWidth, canvasHeight);
+    if(theGame.collisionDetection(player.x, player.y - characterSpeed))
+    player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
+    // else
+    // player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowDown"){
-    player.movePlayer(player.x,player.y + characterSpeed, canvasWidth, canvasHeight);
+    if(theGame.collisionDetection(player.x, player.y + characterSpeed))
+    player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
+    // else
+    // player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowLeft"){
-    player.movePlayer(player.x - characterSpeed,player.y, canvasWidth, canvasHeight);
+    if(theGame.collisionDetection(player.x - characterSpeed, player.y))
+    player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
+    // else
+    // player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowRight"){
-    player.movePlayer(player.x + characterSpeed,player.y, canvasWidth, canvasHeight);
+    if(theGame.collisionDetection(player.x + characterSpeed, player.y))
+    player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
+    // else
+    // player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
   }
 }
+
+// start of the game
 mainLoop();
 
+// document.getElementsByClassName('reset')[0].onclick = theGame.reset();

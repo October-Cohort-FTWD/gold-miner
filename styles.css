@@ -24,7 +24,7 @@ body {
   background-color: rgba(240, 167, 11, 0.877);
   color: black;
 }
-.game-board-left{
+.game-board-left, .game-board-right{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -56,8 +56,10 @@ height: 85vh;
 color: black;
 border-color: rgba(94, 39, 3, 0.877);
 width: 10vw;
+height: 6vh;
+border-radius: 10px;
 }
-.reset:hover {
+.reset:hover, .reset:active {
   background-color: rgba(94, 39, 3, 0.877);
 color: white;
 border-color: rgba(240, 167, 11, 0.877);
