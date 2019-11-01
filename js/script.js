@@ -20,6 +20,8 @@ theGame.chooseCharacter("test");
 // create player and monster variables
 let player = theGame.thePlayer;
 let monster = theGame.theMonster;
+let themeMusic = theGame.theThemeMusic;
+let ouchSound = theGame.theOuch;
 
 // keeps count of the frames
 let frame = 0;
@@ -36,6 +38,7 @@ function mainLoop(){
     theGame.drawPlayer(ctx);
     theGame.drawMoney(ctx);
     theGame.drawMonster(ctx);
+    theGame.theThemeMusic.play();
   
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 

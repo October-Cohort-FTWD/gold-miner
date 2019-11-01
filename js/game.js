@@ -11,6 +11,8 @@ class Game {
     this.moneyArray = [];
     this.tracker = 0;
     this.createMoney();
+    this.theThemeMusic = new sound('../music/NKM-G-25-31-925701782-0-21254-30-40-3-2394-50-0-10-102-35-540-47-350-0-0-0-0-0.mp3');
+    this.theOuch = new sound('../music/ouch.mov');
   }
 
   // create money
@@ -143,6 +145,7 @@ class Game {
     if(playerRightSide >= monsterLeftSide && playerLeftSide <= monsterRightSide && 
       playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
       canMove = false;
+      this.theOuch.play();
     }
 
     // the greater these values are the closer the player will be able to get to the object before it cannot move
