@@ -14,13 +14,18 @@ let canvasHeight = document.querySelector("#rock-board").height;
 // create a Game object, initializes new player and monster
 let theGame = new Game(canvasWidth, canvasHeight);
 
+// testing choose a character method
+theGame.chooseCharacter("test");
+
 // create player and monster variables
 let player = theGame.thePlayer;
 let monster = theGame.theMonster;
+let themeMusic = theGame.theThemeMusic;
+let ouchSound = theGame.theOuch;
 
 // keeps count of the frames
 let frame = 0;
-
+let time = 
 // function that recursively calls itself to update the animation screen
 // the loop can be called anything you want, doesn't have to be mainLoop
 function mainLoop(){
@@ -33,9 +38,8 @@ function mainLoop(){
     theGame.drawPlayer(ctx);
     theGame.drawMoney(ctx);
     theGame.drawMonster(ctx);
+    theGame.theThemeMusic.play();
   
-  
-
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 
     * This will request that your animation function be called before the browser performs 
@@ -46,7 +50,7 @@ function mainLoop(){
 }
 
 // randomly move the monster on the game board
-// monster.moveMonster(canvasWidth, canvasHeight);
+monster.moveMonster(canvasWidth, canvasHeight);
 
 function restart() {
   theGame.reset();
@@ -60,29 +64,36 @@ document.onkeydown = function(e){
   if(e.key === "ArrowUp"){
     if(theGame.collisionDetection(player.x, player.y - characterSpeed))
     player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowDown"){
     if(theGame.collisionDetection(player.x, player.y + characterSpeed))
     player.movePlayer(player.x, player.y + characterSpeed, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x, player.y - characterSpeed, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowLeft"){
     if(theGame.collisionDetection(player.x - characterSpeed, player.y))
     player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
   }
   if(e.key === "ArrowRight"){
     if(theGame.collisionDetection(player.x + characterSpeed, player.y))
     player.movePlayer(player.x + characterSpeed, player.y, canvasWidth, canvasHeight);
-    // else
+    // else testing rebound simulation
     // player.movePlayer(player.x - characterSpeed, player.y, canvasWidth, canvasHeight);
   }
 }
 
 // start of the game
 mainLoop();
+function openPopup() {
+  document.getElementById
+}
+function timeUp() {
+setInterval(()=>{
 
+}, 1000)
+}

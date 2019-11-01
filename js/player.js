@@ -7,7 +7,7 @@ class Player {
      * @param {height of player} height 
      * @param {default charater type is a miner} characterType 
      */
-    constructor(x,y,width,height, characterType) {
+    constructor(x,y,width,height) {
         this.x = x;
         this.y = y;
         this.width = width;

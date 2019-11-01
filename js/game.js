@@ -3,7 +3,7 @@ class Game {
    * constructor for Game object
    * a Player object is initialzed with default values
    */
-  constructor() {
+  constructor(canvasWidth, canvasHeight) {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.thePlayer = new Player(0,0,60,100);
@@ -11,17 +11,50 @@ class Game {
     this.moneyArray = [];
     this.tracker = 0;
     this.createMoney();
+    this.theThemeMusic = new sound('../music/NKM-G-25-31-925701782-0-21254-30-40-3-2394-50-0-10-102-35-540-47-350-0-0-0-0-0.mp3');
+    this.theOuch = new sound('../music/ouch.mov');
   }
 
   // create money
   createMoney() {
     this.moneyArray = [];
     // randomly creates number of money
-    let r = Math.floor(Math.random() * 20) + 1;
+    let r = Math.floor(Math.random() * 20) + 5;
+    let moneyXPosition;
+    let moneyYPosition;
+    
     for (let i = 0; i < r; i++) {
+      moneyXPosition = Math.floor(Math.random() * (this.canvasWidth - 25));
+      moneyYPosition = Math.floor(Math.random() * (this.canvasHeight - 40));
+      if(moneyXPosition <= this.thePlayer.width)
+      moneyXPosition += this.thePlayer.width;
+      if(moneyXPosition <= this.thePlayer.height)
+      moneyYPosition += this.thePlayer.height;
+
       this.moneyArray.push({
-        i: new Money(Math.floor(Math.random() * canvasWidth ) - 25, Math.floor(Math.random() * canvasHeight ) - 40, 25, 40, Math.floor(Math.random() * 4) + 1)
+        i: new Money(moneyXPosition, moneyYPosition, 25, 40, Math.floor(Math.random() * 4) + 1)
       });
+      this.moneyArray.forEach(mon => 
+        console.log(Object.keys(mon)))
+    }
+  }
+
+  /**
+   * 
+   * @param {the context where the canvas is located} context 
+   */
+  drawMoney(context) {
+    let moneyX;
+    let moneyY;
+    let moneyWidth;
+    let moneyHeight;
+
+    for(let i=0;i< this.moneyArray.length;i++) {
+      moneyX = this.moneyArray[i].i.x;
+      moneyY = this.moneyArray[i].i.y;
+      moneyWidth = this.moneyArray[i].i.width;
+      moneyHeight = this.moneyArray[i].i.height;
+      context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
     }
   }
 
@@ -42,12 +75,12 @@ class Game {
    * this function allows the player to choose a different character
    * @param {string: specifies the character the player wants} characterType 
    */
-  chooseCharacter(characterType) {
-    switch(characterType) {
-      case "characterTheUserTypes":
+  chooseCharacter(characterChosen) {
+    switch(characterChosen) {
+      case "test":
           const characterTheUserTypesImg = new Image();
-          characterTheUserTypesImg.src = "./images/characterTheUserTypes.png";
-          this.thePlayer.character = characterTheUserTypesImg;
+          characterTheUserTypesImg.src = "./images/cartoon-miner.png";
+          this.thePlayer.characterType = characterTheUserTypesImg;
           break;
     }
   }
@@ -86,52 +119,34 @@ class Game {
    * @param {new y axis position on canvas} futureY 
    */
   collisionDetection(futureX, futureY) {
-  let canMove = true;
+    let canMove = true;
 
-  // the greater these values are the closer the player will be able to get to the object before it cannot move
-  let rightCollissionProximity = 10;
-  let leftCollissionProximity = 11;
-  let topCollissionProximity = 25;
-  let bottomCollissionProximity = 30;
+    // the greater these values are the closer the player will be able to get to the object before it cannot move
+    let rightCollissionProximity = 10;
+    let leftCollissionProximity = 11;
+    let topCollissionProximity = 25;
+    let bottomCollissionProximity = 30;
 
-  let playerRightSide = futureX + this.thePlayer.width - rightCollissionProximity;
-  let playerLeftSide = futureX  + leftCollissionProximity;
-  let playerTopSide = futureY + topCollissionProximity;
-  let playerBottomSide = futureY + this.thePlayer.height - bottomCollissionProximity;
+    let playerRightSide = futureX + this.thePlayer.width - rightCollissionProximity;
+    let playerLeftSide = futureX  + leftCollissionProximity;
+    let playerTopSide = futureY + topCollissionProximity;
+    let playerBottomSide = futureY + this.thePlayer.height - bottomCollissionProximity;
 
-  let monsterRightSide = this.theMonster.x + this.theMonster.width;
-  let monsterLeftSide = this.theMonster.x;
-  let monsterTopSide = this.theMonster.y;
-  let monsterBottomSide = this.theMonster.y + this.theMonster.height;
+    let monsterRightSide = this.theMonster.x + this.theMonster.width;
+    let monsterLeftSide = this.theMonster.x;
+    let monsterTopSide = this.theMonster.y;
+    let monsterBottomSide = this.theMonster.y + this.theMonster.height;
 
-  /**
-   * if the right and left side of the player are between then monsters left and right side &&
-   * if the top and bottom side of the player are between then monsters top and bottom side
-   */
-  if(playerRightSide >= monsterLeftSide && playerLeftSide <= monsterRightSide && 
-    playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
-    canMove = false;
-  }
-  return canMove;
-}
-
-  /**
-   * 
-   * @param {the context where the canvas is located} context 
-   */
-  drawMoney(context) {
-    let moneyX;
-    let moneyY;
-    let moneyWidth;
-    let moneyHeight;
-
-    for(let i=0;i< this.moneyArray.length;i++) {
-      moneyX = this.moneyArray[i].i.x;
-      moneyY = this.moneyArray[i].i.y;
-      moneyWidth = this.moneyArray[i].i.width;
-      moneyHeight = this.moneyArray[i].i.height;
-      context.drawImage(this.moneyArray[i].i.revealType(this.moneyArray[i].i.moneyType), moneyX, moneyY, moneyWidth, moneyHeight);
+    /**
+     * if the right and left side of the player are between then monsters left and right side &&
+     * if the top and bottom side of the player are between then monsters top and bottom side
+     */
+    if(playerRightSide >= monsterLeftSide && playerLeftSide <= monsterRightSide && 
+      playerBottomSide >= monsterTopSide && playerTopSide <= monsterBottomSide) {
+      canMove = false;
+      this.theOuch.play();
     }
+    return canMove;
   }
 
   // track the score and keeps adding it to the score element in the score-board
