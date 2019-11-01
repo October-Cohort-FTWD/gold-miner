@@ -29,7 +29,7 @@ class Monster {
         let futureY = 0;
         let monsterSpeed = 10;
         let counter = 0;
-            
+        
          setInterval(()=>{
 
                 console.log(futureX, futureY, canvasWidth, canvasHeight, monsterSpeed)

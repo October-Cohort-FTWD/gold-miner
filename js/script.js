@@ -47,7 +47,7 @@ function mainLoop(){
 }
 
 // randomly move the monster on the game board
-// monster.moveMonster(canvasWidth, canvasHeight);
+monster.moveMonster(canvasWidth, canvasHeight);
 
 function restart() {
   theGame.reset();
@@ -87,4 +87,3 @@ document.onkeydown = function(e){
 // start of the game
 mainLoop();
 
-// document.getElementsByClassName('reset')[0].onclick = theGame.reset();
