@@ -33,6 +33,8 @@ function mainLoop(){
     theGame.drawPlayer(ctx);
     theGame.drawMoney(ctx);
     theGame.drawMonster(ctx);
+  
+  
 
     /**
     * You should call this method whenever you're ready to update your animation onscreen. 
@@ -45,6 +47,10 @@ function mainLoop(){
 
 // randomly move the monster on the game board
 // monster.moveMonster(canvasWidth, canvasHeight);
+
+function restart() {
+  theGame.reset();
+}
 
 // controls how fast the character moves
 let characterSpeed = 15;
@@ -77,5 +83,10 @@ document.onkeydown = function(e){
   }
 }
 
+<<<<<<< HEAD
+=======
+// start of the game
+>>>>>>> 8f3701e321e2c752be304a1196155271a87a903d
 mainLoop();
 
+// document.getElementsByClassName('reset')[0].onclick = theGame.reset();
