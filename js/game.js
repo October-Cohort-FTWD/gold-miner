@@ -20,7 +20,7 @@ class Game {
     let r = Math.floor(Math.random() * 20) + 1;
     for (let i = 0; i < r; i++) {
       this.moneyArray.push({
-        i: new Money(Math.floor(Math.random() * canvasWidth - 30), Math.floor(Math.random() * canvasHeight - 50), 25, 40, Math.floor(Math.random() * 4) + 1)
+        i: new Money(Math.floor(Math.random() * canvasWidth ) - 25, Math.floor(Math.random() * canvasHeight ) - 40, 25, 40, Math.floor(Math.random() * 4) + 1)
       });
     }
   }

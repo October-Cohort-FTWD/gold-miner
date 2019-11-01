@@ -24,7 +24,7 @@ body {
   background-color: rgba(240, 167, 11, 0.877);
   color: black;
 }
-.game-board-left{
+.game-board-left, .game-board-right{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
