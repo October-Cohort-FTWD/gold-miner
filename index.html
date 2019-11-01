@@ -13,10 +13,26 @@
   </head>
 
   <body>
-    <div id="game-board" class="container">
-       
-      <canvas id="rock-board" class="container" width="700" height="700"></canvas>
+    <div class="top"></div>
+    <div class="main-content">
+      <div class="game-board-left">
+          <div class="score-board">
+              <div class="score"><h4><strong>Score</strong></h4> <strong><span class="score-value">0</span></strong></div>
+              <div class="goal"><h4><strong>Goal</strong></h4> <strong><span class="goal-value">0</span></strong></div>
+           </div>
+           <button class="btn btn-primary btn-lg reset">RESET</button>
+      </div>
+     
+        <div id="game-board" class="container">
+            <canvas id="rock-board" class="container" width="700" height="700"></canvas>
+          </div>
+          <div class="game-board-right">
+              <div class="bonus">
+
+                </div>
+          </div>
     </div>
+    
     <!-- modal beginning -->
   <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -24,7 +40,7 @@
 </button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -42,7 +58,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
   </body>
 
   <script type="text/javascript" src="./js/player.js"></script>

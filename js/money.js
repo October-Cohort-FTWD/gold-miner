@@ -32,7 +32,7 @@ class Money {
         }
         if(moneyType === 4) {
             const sapphireImg = new Image();
-            sapphireImg.src = "../images/sapphire.png";
+            sapphireImg.src = "../images/saphire.png";
             return sapphireImg;
         }
     }
