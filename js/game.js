@@ -15,16 +15,16 @@ class Game {
     this.theOuch = new sound('../music/ouch.mov');
   }
 
-  // create money
+  /**
+   * create a random amount of money objects
+   */
   createMoney() {
     this.moneyArray = [];
     // randomly creates number of money
     let r = Math.floor(Math.random() * 20) + 5;
-    r = 3; // testing, remove later
     
     let moneyXPosition;
     let moneyYPosition;
-
     let moneyWidth = 25;
     let moneyHeight = 40
 
@@ -43,7 +43,7 @@ class Game {
   }
 
   /**
-   * 
+   * draw all the money to the canvas
    * @param {the context where the canvas is located} context 
    */
   drawMoney(context) {
@@ -160,6 +160,7 @@ class Game {
       if(playerRightSide >= e.i.x && playerLeftSide <= e.i.x + e.i.width && 
         playerBottomSide >= e.i.y && playerTopSide <= e.i.y + e.i.height)
         canMove = false;
+        // this.moneyArray.splice(index, 1);
     })
 
     return canMove;
