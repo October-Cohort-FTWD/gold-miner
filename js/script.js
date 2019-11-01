@@ -46,7 +46,7 @@ function mainLoop(){
 }
 
 // randomly move the monster on the game board
-// monster.moveMonster(canvasWidth, canvasHeight);
+monster.moveMonster(canvasWidth, canvasHeight);
 
 function restart() {
   theGame.reset();
